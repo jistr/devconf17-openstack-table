@@ -12,6 +12,9 @@
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
+    <!-- Customizations -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
@@ -24,8 +27,53 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section data-autoslide="5000">
+          <img src="images/tripleo_owl.svg"/>
+          <p>Deployment of OpenStack via OpenStack's own tools</p>
+        </section>
+        <section>
+          <h1>TripleO - state at DevConf '16</h1>
+          <ul>
+            <li>5 predefined node roles to build your cloud with
+              <ul>
+                <li>Incl. seamless deployment of Ceph storage</li>
+              </ul>
+            </li>
+            <li>Network traffic isolation</li>
+              <ul>
+                <li>All the way to physical NICs level</li>
+              </ul>
+            </li>
+            <li>Updates between minor versions</li>
+          <ul>
+        </section>
+        <section>
+          <h1>TripleO - done since DevConf '16 (highlights)</h1>
+          <ul>
+            <li>IPv6 support</li>
+            <li>TLS for API endpoints</li>
+            <li>Upgrades between major releases</li>
+            <li>Full deployment composability
+              <ul>
+                <li>Selection of services to deploy</li>
+                <li>Definition of custom node roles</li>
+              </ul>
+            </li>
+          <ul>
+        </section>
+        <section>
+          <h1>TripleO - what's in the works (highlights)</h1>
+          <ul>
+            <li>Undercloud deployment via the same mechanism as overcloud</li>
+            <li>Containerized deployment</li>
+            <li>Flexible major upgrades framework</li>
+            <li>Additional TLS-enabled scenarios
+              <ul>
+                <li>Incl. certificate management via FreeIPA</li>
+              </ul>
+            </li>
+          <ul>
+        </section>
       </div>
     </div>
 
@@ -35,7 +83,10 @@
     <script>
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        autoSlide: 15000,
         history: true,
+        loop: true,
+        width: '70%',
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
