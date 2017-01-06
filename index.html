@@ -29,7 +29,7 @@
       <div class="slides">
         <section data-autoslide="5000">
           <img src="images/tripleo_owl.svg"/>
-          <p>Deployment of OpenStack via OpenStack's own tools</p>
+          <p>Deployment of OpenStack via OpenStack's own mechanisms</p>
         </section>
         <section>
           <h1>TripleO - state at DevConf '16</h1>
@@ -84,6 +84,7 @@
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         autoSlide: 15000,
+        autoSlideStoppable: true,
         history: true,
         loop: true,
         width: '70%',
@@ -96,6 +97,23 @@
           { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
+
+      var autoSlideRestartTimeout = null;
+      var autoSlideRestarter = function() {
+        if (autoSlideRestartTimeout != null) {
+          clearTimeout(autoSlideRestartTimeout);
+        }
+
+        autoSlideRestartTimeout = setTimeout(function () {
+          autoSlideRestartTimeout = null;
+          if (!Reveal.isAutoSliding()) {
+            Reveal.toggleAutoSlide();
+          }
+        }, 10000);
+      };
+
+      document.addEventListener("keydown", autoSlideRestarter);
+      document.addEventListener("autoslidepaused", autoSlideRestarter);
     </script>
   </body>
 </html>
