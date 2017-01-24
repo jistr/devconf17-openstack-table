@@ -11,3 +11,7 @@
     border: 0px none;
     background: white;
 }
+
+.reveal a.unobtrusive {
+    color: inherit;
+}
