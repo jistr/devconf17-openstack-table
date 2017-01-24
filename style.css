@@ -4,5 +4,10 @@
 
 .reveal section img {
     border: 0px none;
+    background: none;
+}
+
+.reveal section img.whitebg {
+    border: 0px none;
     background: white;
 }
